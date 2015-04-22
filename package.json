@@ -17,6 +17,8 @@
   "dependencies": {
     "three": "^0.70.0",
     "three-world": "^2.0.2",
-    "tween": "^0.9.0"
+    "tween": "^0.9.0",
+    "leapjs": "^0.6.4",
+    "leapjs-plugins": "^0.1.11-pre"   
   }
 }
