@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <title>The future of the visual web</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <style>
+  html, body { padding: 0; margin: 0; height: 100%; height: 100vh; overflow: hidden; }
+  body {
+    color: white;
+    font-family: Roboto, sans-serif;
+  }
+  </style>
+  <script id="vertex_shader" type="x-shader/x-vertex">
+    varying vec2 vUv;
+
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+    }
+  </script>
+  <script id="plasma_shader" type="x-shader/x-fragment">
+  uniform float time;
+  uniform vec2 resolution;
+  varying vec2 vUv;
+  uniform sampler2D texture;
+
+  void main(void) {
+    vec2 p = -1.0 + 2.0 * vUv;
+
+    // main code, *original shader by: 'Plasma' by Viktor Korsun (2011)
+    float x = p.x;
+    float y = p.y;
+    float mov0 = x+y+cos(sin(time)*2.0)*100.+sin(x/100.)*1000.;
+    float mov1 = y / 0.9 + time;
+    float mov2 = x / 0.2;
+
+    float c1 = abs(sin(mov1+time)/2.+mov2/2.-mov1-mov2+time);
+    float c2 = abs(sin(c1+sin(mov0/1000.+time)+sin(y/40.+time)+sin((x+y)/100.)*3.));
+    float c3 = abs(sin(c2+cos(mov1+mov2+c2)+cos(mov2)+sin(x/1000.)));
+
+    vec3 ct = texture2D( texture, vUv).rgb;
+    vec3 plasmaColor = vec3(0.0, c1 / 2.0, c1) * vec3(0.0, c2 / 2.0, c2) * vec3(0.0, c3 / 2.0, c3);
+    vec3 blendedColor = mix(plasmaColor, ct, 0.8);
+    gl_FragColor = vec4(blendedColor, 1.0);
+  }
+  </script>
+</head>
+<body>
+  <script src="app.js"></script>
+</body>
+</html>
