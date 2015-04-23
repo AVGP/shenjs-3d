@@ -19,6 +19,6 @@
     "three-world": "^2.0.2",
     "tween": "^0.9.0",
     "leapjs": "^0.6.4",
-    "leapjs-plugins": "^0.1.11-pre"   
+    "leapjs-plugins": "git://github.com:AVGP/leapjs-plugins.git#npm-fix"
   }
 }
