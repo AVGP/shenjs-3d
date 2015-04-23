@@ -158,6 +158,39 @@ var previousHandPos  = null,
     Z_AXIS_VECTOR    = new THREE.Vector3(0, 0, 1),
     directionVector  = new THREE.Vector3();
 
+var menu = new THREE.Object3D(),
+    menuObjects = [
+      new THREE.Mesh(
+        new THREE.BoxGeometry(50, 50, 50),
+        new THREE.MeshBasicMaterial({color: 0xff0000, transparent: true, opacity: 0.5})
+      ),
+      new THREE.Mesh(
+        new THREE.SphereGeometry(50, 24, 24),
+        new THREE.MeshBasicMaterial({color: 0x00ff00, transparent: true, opacity: 0.5})
+      ),
+      new THREE.Mesh(
+        new THREE.TorusKnotGeometry(),
+        new THREE.MeshBasicMaterial({color: 0x0000ff, transparent: true, opacity: 0.5})
+      )
+    ];
+
+    menuObjects[0].position.set(-100,   0, 0);
+    menuObjects[1].position.set( 100,   0, 0);
+    menuObjects[2].position.set(   0, 100, 0);
+    menuObjects[2].scale.set(0.4, 0.4, 0.4);
+
+    for(var i=0;i<3;i++) {
+      menuObjects[i].box = new THREE.Box3()
+      menuObjects[i].box.setFromObject(menuObjects[i]);
+    }
+
+    menu.add(menuObjects[0]);
+    menu.add(menuObjects[1]);
+    menu.add(menuObjects[2]);
+
+    menu.visible = false;
+    World.add(menu);
+
 // Hand stuff
 var magicObjects  = [],
     magicGeometry = new THREE.BoxGeometry(2, 2, 2);
@@ -176,7 +209,7 @@ Leap.loop({enableGestures: true}, function(frame) {
     switch(gesture.type) {
     case 'circle':
       if(selectedObject) break;
-
+/*
       var thing = new THREE.Mesh(
         magicGeometry,
         magicMaterial.clone()
@@ -188,30 +221,46 @@ Leap.loop({enableGestures: true}, function(frame) {
 
       World.add(thing);
       magicObjects.push(thing);
+      */
+      menu.position.set(gesture.center[0], gesture.center[1], gesture.center[2]);
+      for(var i=0;i<3;i++) {
+        menuObjects[i].box.setFromObject(menuObjects[i]);
+      }
+      menu.visible = true;
+      menu.needsUpdate = true;
     break
     case 'keyTap':
-      for(var i=0; i< magicObjects.length; i++) {
-        if(magicObjects[i].box.containsPoint({
-          x: gesture.position[0],
-          y: gesture.position[1],
-          z: gesture.position[2]
-        })) {
-          if(magicObjects[i].selected) {
-            magicObjects[i].material.color.setHex(0xffffff);
-            magicObjects[i].material.transparent = false;
-            magicObjects[i].material.opacity = 1.0;
-            magicObjects[i].material.needsUpdate = true;
-            magicObjects[i].selected = false;
+      console.log("tap");
+      if(menu.visible) {
+        for(var i=0; i<menuObjects.length; i++) {
+          if(menuObjects[i].box.containsPoint({
+            x: gesture.position[0],
+            y: gesture.position[1],
+            z: gesture.position[2]
+          })) {
+            console.log("S");
+            selectedObject = menuObjects[i].clone();
+            selectedObject.material.transparent = false;
+            selectedObject.material.needsUpdate = true;
+            selectedObject.box = menuObjects[i].box.clone();
+            World.add(selectedObject);
 
-            selectedObject = null;
-          } else {
-            magicObjects[i].material.color.setHex(0xff0000);
-            magicObjects[i].material.transparent = true;
-            magicObjects[i].material.opacity = 0.5;
-            magicObjects[i].material.needsUpdate = true;
-            magicObjects[i].selected = true;
-
+            menu.visible = false;
+            menu.needsUpdate = true;
+            console.log("Selected " + i);
+            break;
+          }
+        }
+      } else {
+        for(var i=0; i<magicObjects.length; i++) {
+          if(magicObjects[i].box.containsPoint({
+            x: gesture.position[0],
+            y: gesture.position[1],
+            z: gesture.position[2]
+          })) {
             selectedObject = magicObjects[i];
+            console.log("Selected!")
+            break;
           }
         }
       }
@@ -219,7 +268,21 @@ Leap.loop({enableGestures: true}, function(frame) {
   });
 
   if(frame.hands.length > 0 && selectedObject) {
-    var hand = frame.hands[0];
+    var hand = frame.hands[0],
+        tipPosition = hand.indexFinger.stabilizedTipPosition;
+
+    selectedObject.position.x = tipPosition[0];
+    selectedObject.position.y = tipPosition[1];
+    selectedObject.position.z = tipPosition[2];
+    selectedObject.box.setFromObject(selectedObject);
+
+    if(hand.grabStrength > 0.75) {
+      magicObjects.push(selectedObject);
+      selectedObject = null;
+      console.log("Deselect");
+      return;
+    }
+
     if(hand.pinchStrength < 0.8) {
       return;
     }
@@ -228,12 +291,6 @@ Leap.loop({enableGestures: true}, function(frame) {
       hand.direction[1],
       hand.direction[2]
     );
-
-    var tipPosition = hand.indexFinger.stabilizedTipPosition;
-    selectedObject.position.x = tipPosition[0];
-    selectedObject.position.y = tipPosition[1];
-    selectedObject.position.z = tipPosition[2];
-    selectedObject.box.setFromObject(selectedObject);
 
     var angle = Z_AXIS_VECTOR.angleTo(directionVector);
     selectedObject.rotation.y = angle;
