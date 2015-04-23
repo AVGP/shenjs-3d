@@ -492,11 +492,6 @@ var menu = new THREE.Object3D(),
     menuObjects[2].position.set(   0, 100, 0);
     menuObjects[2].scale.set(0.4, 0.4, 0.4);
 
-    for(var i=0;i<3;i++) {
-      menuObjects[i].box = new THREE.Box3()
-      menuObjects[i].box.setFromObject(menuObjects[i]);
-    }
-
     menu.add(menuObjects[0]);
     menu.add(menuObjects[1]);
     menu.add(menuObjects[2]);
@@ -536,9 +531,6 @@ Leap.loop({enableGestures: true}, function(frame) {
       magicObjects.push(thing);
       */
       menu.position.set(gesture.center[0], gesture.center[1], gesture.center[2]);
-      for(var i=0;i<3;i++) {
-        menuObjects[i].box.setFromObject(menuObjects[i]);
-      }
       menu.visible = true;
       menu.needsUpdate = true;
     break
@@ -546,7 +538,9 @@ Leap.loop({enableGestures: true}, function(frame) {
       console.log("tap");
       if(menu.visible) {
         for(var i=0; i<menuObjects.length; i++) {
-          if(menuObjects[i].box.containsPoint({
+          var box = new THREE.Box3();
+          box.setFromObject(menuObjects[i]);
+          if(box.containsPoint({
             x: gesture.position[0],
             y: gesture.position[1],
             z: gesture.position[2]
@@ -555,7 +549,6 @@ Leap.loop({enableGestures: true}, function(frame) {
             selectedObject = menuObjects[i].clone();
             selectedObject.material.transparent = false;
             selectedObject.material.needsUpdate = true;
-            selectedObject.box = menuObjects[i].box.clone();
             World.add(selectedObject);
 
             menu.visible = false;
@@ -566,7 +559,9 @@ Leap.loop({enableGestures: true}, function(frame) {
         }
       } else {
         for(var i=0; i<magicObjects.length; i++) {
-          if(magicObjects[i].box.containsPoint({
+          var box = new THREE.Box3();
+          box.setFromObject(menuObjects[i]);
+          if(box.containsPoint({
             x: gesture.position[0],
             y: gesture.position[1],
             z: gesture.position[2]
@@ -587,7 +582,6 @@ Leap.loop({enableGestures: true}, function(frame) {
     selectedObject.position.x = tipPosition[0];
     selectedObject.position.y = tipPosition[1];
     selectedObject.position.z = tipPosition[2];
-    selectedObject.box.setFromObject(selectedObject);
 
     if(hand.grabStrength > 0.75) {
       magicObjects.push(selectedObject);
