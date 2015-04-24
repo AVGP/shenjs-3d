@@ -78,6 +78,21 @@ loader.load('antel/antel.obj', 'antel/antel.mtl', function(mesh) {
   World.add(mesh)
 })
 
+// WTC
+
+loader.load('wtc/jjjjj.obj', 'wtc/jjjjj.mtl', function(mesh) {
+  mesh.traverse(function(object) {
+    if(object instanceof THREE.Mesh) {
+      object.material.side = THREE.DoubleSide
+    }
+  })
+  mesh.rotation.set(-Math.PI/2, 0, Math.PI / 5)
+  mesh.position.set(950, -5, -520)
+  mesh.scale.set(0.00045, 0.00045, 0.00045)
+  World.add(mesh)
+})
+
+
 var floorTex = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("floor.jpg", null, function() {
   floorTex.map.wrapS = floorTex.map.wrapT = THREE.RepeatWrapping
   floorTex.map.repeat.set(50, 50)
