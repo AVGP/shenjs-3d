@@ -203,6 +203,11 @@ Leap.loop({enableGestures: true}, function(frame) {
 
     switch(gesture.type) {
     case 'circle':
+      if(menu.visible) {
+        menu.visible = false;
+        menu.needsUpdate = true;
+        break
+      }
       if(selectedObject) break;
 /*
       var thing = new THREE.Mesh(
@@ -245,6 +250,7 @@ Leap.loop({enableGestures: true}, function(frame) {
           }
         }
       } else {
+        console.log("Checking magic objects", magicObjects)
         for(var i=0; i<magicObjects.length; i++) {
           var box = new THREE.Box3();
           box.setFromObject(menuObjects[i]);
@@ -270,24 +276,12 @@ Leap.loop({enableGestures: true}, function(frame) {
     selectedObject.position.y = tipPosition[1];
     selectedObject.position.z = tipPosition[2];
 
-    if(hand.grabStrength > 0.75) {
+    if(hand.pinchStrength > 0.75) {
       magicObjects.push(selectedObject);
       selectedObject = null;
       console.log("Deselect");
       return;
     }
-
-    if(hand.pinchStrength < 0.8) {
-      return;
-    }
-    directionVector.set(
-      hand.direction[0],
-      hand.direction[1],
-      hand.direction[2]
-    );
-
-    var angle = Z_AXIS_VECTOR.angleTo(directionVector);
-    selectedObject.rotation.y = angle;
   }
 }).use('boneHand', {
   scene: World.getScene(),
