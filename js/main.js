@@ -64,34 +64,50 @@ loader.load('primetower/Prime-Tower-V34.obj', 'primetower/Prime-Tower-V34.mtl', 
 
 })
 
-// Torre ANTEL
+// Fraumünster
 
-loader.load('antel/antel.obj', 'antel/antel.mtl', function(mesh) {
+loader.load('fraumuenster/Fraumu-nster.obj', 'fraumuenster/Fraumu-nster.mtl', function(mesh) {
   mesh.traverse(function(object) {
     if(object instanceof THREE.Mesh) {
       object.material.side = THREE.DoubleSide
     }
   })
-  mesh.rotation.set(-Math.PI/2, 0, 0)
+  mesh.rotation.set(-Math.PI/2, 0, Math.PI/2)
+  mesh.position.set(1580, -5, -300)
+  mesh.scale.set(0.0004, 0.0004, 0.0004)
+  World.add(mesh)
+window.xxx = mesh
+})
+
+
+// Gherkin
+
+loader.load('gherkin/gherkin.obj', 'gherkin/gherkin.mtl', function(mesh) {
+  mesh.traverse(function(object) {
+    if(object instanceof THREE.Mesh) {
+      object.material.side = THREE.DoubleSide
+    }
+  })
+  mesh.rotation.set(-Math.PI/2, 0, Math.PI/4)
   mesh.position.set(1000, -5, -500)
-  mesh.scale.set(0.0001, 0.0001, 0.0001)
+  mesh.scale.set(0.0002, 0.0002, 0.0002)
   World.add(mesh)
 })
 
-// WTC
+// Tower bridge
 
-loader.load('wtc/jjjjj.obj', 'wtc/jjjjj.mtl', function(mesh) {
+loader.load('tower-bridge/Tower03_sketchup.obj', 'tower-bridge/Tower03_sketchup.mtl', function(mesh) {
   mesh.traverse(function(object) {
     if(object instanceof THREE.Mesh) {
       object.material.side = THREE.DoubleSide
     }
   })
-  mesh.rotation.set(-Math.PI/2, 0, Math.PI / 5)
-  mesh.position.set(950, -5, -520)
-  mesh.scale.set(0.00045, 0.00045, 0.00045)
+  mesh.rotation.set(-Math.PI/2, 0, Math.PI/4)
+  mesh.position.set(1050, -5, -500)
+  mesh.scale.set(0.0002, 0.0002, 0.0002)
   World.add(mesh)
+  window.thing = mesh
 })
-
 
 var floorTex = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("floor.jpg", null, function() {
   floorTex.map.wrapS = floorTex.map.wrapT = THREE.RepeatWrapping
@@ -123,13 +139,13 @@ World.start()
 
 // CSS 3D
 
-// Text 1: Montevideo
+// Text 1: London
 var elem = document.createElement("h1");
-elem.textContent = "Buenas dias, Montevideo!";
+elem.textContent = "Good afternoon, London!";
 elem.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
 
 var cssObj = new CSS3D.Object3D(elem);
-cssObj.position.set(1035, 20, -500);
+cssObj.position.set(1050, 20, -500);
 cssObj.scale.set(0.2, 0.2, 0.2);
 //cssObj.rotation.y = - Math.PI/2;
 cssScene.add(cssObj);
@@ -143,6 +159,16 @@ var cssObj2 = new CSS3D.Object3D(elem2);
 cssObj2.position.set(1500, 20, -400)
 cssObj2.scale.set(0.2, 0.2, 0.2);
 cssObj2.rotation.y = deg2rad(-45);
+cssScene.add(cssObj2);
+
+// Text 3: Present
+var elem3 = document.createElement("h1");
+elem3.textContent = "And I'd like to present to you...";
+elem3.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+
+var cssObj3 = new CSS3D.Object3D(elem2);
+cssObj3.position.set(0, 50, 400)
+cssObj3.scale.set(0.2, 0.2, 0.2);
 cssScene.add(cssObj2);
 
 // Animation
