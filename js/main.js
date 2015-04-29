@@ -3,6 +3,7 @@ var THREE         = require('three'),
     OBJMTLLoader  = require('./objmtlloader'),
     Animation     = require('./animation'),
     CSS3D         = require('./css3d'),
+    Slides        = require('./slides'),
     Leap          = require('leapjs'),
     LeapPlugins   = require('leapjs-plugins');
 
@@ -58,7 +59,7 @@ loader.load('primetower/Prime-Tower-V34.obj', 'primetower/Prime-Tower-V34.mtl', 
     }
   })
   mesh.rotation.set(-Math.PI/2, 0, 0)
-  mesh.position.set(1540, -5, -300)
+  mesh.position.set(-600, -5, -300)
   mesh.scale.set(0.01, 0.01, 0.01)
   World.add(mesh)
 
@@ -73,10 +74,9 @@ loader.load('fraumuenster/Fraumu-nster.obj', 'fraumuenster/Fraumu-nster.mtl', fu
     }
   })
   mesh.rotation.set(-Math.PI/2, 0, Math.PI/2)
-  mesh.position.set(1580, -5, -300)
+  mesh.position.set(-580, -5, -300)
   mesh.scale.set(0.0004, 0.0004, 0.0004)
   World.add(mesh)
-window.xxx = mesh
 })
 
 
@@ -131,7 +131,7 @@ var logo = new THREE.Mesh(
   new THREE.MeshPhongMaterial({map: THREE.ImageUtils.loadTexture("img/archilogic.png")})
 );
 
-logo.position.set(1480, 50, -280)
+logo.position.set(-630, 60, -310)
 
 World.add(logo);
 
@@ -156,7 +156,7 @@ elem2.textContent = "I'm Martin from Zurich";
 elem2.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
 
 var cssObj2 = new CSS3D.Object3D(elem2);
-cssObj2.position.set(1500, 20, -400)
+cssObj2.position.set(-650, 20, -400)
 cssObj2.scale.set(0.2, 0.2, 0.2);
 cssObj2.rotation.y = deg2rad(-45);
 cssScene.add(cssObj2);
@@ -171,26 +171,67 @@ cssObj3.position.set(0, 50, 400)
 cssObj3.scale.set(0.2, 0.2, 0.2);
 cssScene.add(cssObj2);
 
+for(var i=0; i<Slides.length;i++) cssScene.add(Slides[i].mesh);
+
 // Animation
 
 var cameraPoints = [
-  {position: {x:    0, y:  0, z:  100}, rotation: {x: 0, y:   0, z: 0}},
-  {position: {x: 1000, y: 25, z: -400}, rotation: {x: 0, y:   0, z: 0}},
-  {position: {x: 1400, y: 25, z: -200}, rotation: {x: 0, y: -45, z: 0}},
-  {position: {x:    0, y: 50, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x:    0, y:    0, z:  100}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 1000, y:   25, z: -400}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: -700, y:   25, z: -200}, rotation: {x: 0, y: -45, z: 0}},
+{position: {x:    0, y:   50, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x:    0, y:  200, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: -800, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: -400, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x:    0, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x:  400, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x:  800, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 1200, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 1600, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 1600, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 2000, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 2000, y:    0, z:    0}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  400, z:    0}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  800, z:    0}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  800, z:  200}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  400, z:  200}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:    0, z: -200}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:    0, z: -400}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:    0, z: -600}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  200, z: -600}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  400, z: -600}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  600, z: -600}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  800, z: -600}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  800, z: -800}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  600, z: -800}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  400, z: -800}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  200, z: -800}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:    0, z: -800}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:    0, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  200, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  400, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  800, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y: 1000, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 ], currentPoint = 0;
 
 // Input
+
+if(window.location.hash.length > 0) {
+  currentPoint = parseInt(window.location.hash.slice(1), 10);
+  Animation.animate(camera, cameraPoints[currentPoint].position, cameraPoints[currentPoint].rotation);
+}
 
 window.addEventListener('keyup', function(e) {
   if(e.keyCode == 39 || e.keyCode == 32) {
     currentPoint++;
     if(!cameraPoints[currentPoint]) return;
     Animation.animate(camera, cameraPoints[currentPoint].position, cameraPoints[currentPoint].rotation);
+    window.location.hash = "#" + currentPoint;
   } else if(e.keyCode == 37){
     currentPoint--;
     if(!cameraPoints[currentPoint]) return;
     Animation.animate(camera, cameraPoints[currentPoint].position, cameraPoints[currentPoint].rotation);
+    window.location.hash = "#" + currentPoint;
   }
 }, false);
 
