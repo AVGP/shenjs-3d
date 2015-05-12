@@ -446,11 +446,11 @@ slides.push(slide);
 // Slide 31
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Thank you!</h1> \
+slide.innerHTML = "<h1>Grazie!</h1> \
 <ul> \
-<li>Slides @ <a href=\"https://bit.ly/fowd-3dweb\">bit.ly/fowd-3dweb</a></li> \
+<li>Slides @ <a href=\"https://bit.ly/fowd-3dweb\">bit.ly/jsday15-3dweb</a></li> \
 <li>Twitter: <a href=\"https://twitter.com/g33konaut\">@g33konaut</a></li> \
-<li>Web: <a href=\"http://about.archilogic.com\">archilogic.com</a></li> \
+<li>Web: <a href=\"http://beta.archilogic.com\">archilogic.com</a></li> \
 </ul>";
 
 slide.mesh = new CSS3D.Object3D(slide);

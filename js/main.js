@@ -141,7 +141,7 @@ World.start()
 
 // Text 1: London
 var elem = document.createElement("h1");
-elem.textContent = "Good afternoon, London!";
+elem.textContent = "Buon giorno, Verona!";
 elem.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
 
 var cssObj = new CSS3D.Object3D(elem);
@@ -234,6 +234,10 @@ window.addEventListener('keyup', function(e) {
     window.location.hash = "#" + currentPoint;
   }
 }, false);
+
+// HUC SUNT DRACONES
+// HERE BE DRAGONS
+// (scarily shaky demo)
 
 var previousHandPos  = null,
     previousRotation = null,
