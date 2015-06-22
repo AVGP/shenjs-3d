@@ -80,34 +80,38 @@ loader.load('fraumuenster/Fraumu-nster.obj', 'fraumuenster/Fraumu-nster.mtl', fu
 })
 
 
-// Gherkin
+// Guell
 
-loader.load('gherkin/gherkin.obj', 'gherkin/gherkin.mtl', function(mesh) {
+loader.load('guell/Guell-4.obj', 'guell/Guell-4.mtl', function(mesh) {
   mesh.traverse(function(object) {
     if(object instanceof THREE.Mesh) {
       object.material.side = THREE.DoubleSide
     }
   })
-  mesh.rotation.set(-Math.PI/2, 0, Math.PI/4)
-  mesh.position.set(1000, -5, -500)
-  mesh.scale.set(0.0002, 0.0002, 0.0002)
-  World.add(mesh)
-})
-
-// Tower bridge
-
-loader.load('tower-bridge/Tower03_sketchup.obj', 'tower-bridge/Tower03_sketchup.mtl', function(mesh) {
-  mesh.traverse(function(object) {
-    if(object instanceof THREE.Mesh) {
-      object.material.side = THREE.DoubleSide
-    }
-  })
-  mesh.rotation.set(-Math.PI/2, 0, Math.PI/4)
-  mesh.position.set(1050, -5, -500)
-  mesh.scale.set(0.0002, 0.0002, 0.0002)
+  mesh.rotation.set(-Math.PI/2, 0, 0) //Math.PI/4)
+  mesh.position.set(800, -5, -700)
+  mesh.scale.set(0.25, 0.25, 0.25)
   World.add(mesh)
   window.thing = mesh
 })
+
+// Hotel d'Arts
+
+loader.load('hotel-d-arts/s8.obj', 'hotel-d-arts/s8.mtl', function(mesh) {
+  mesh.traverse(function(object) {
+    if(object instanceof THREE.Mesh) {
+      object.material.side = THREE.DoubleSide
+    }
+  })
+  mesh.rotation.set(-Math.PI/2, 0, 0) //Math.PI/4)
+  mesh.position.set(1150, -5, -900)
+  mesh.scale.set(0.002, 0.002, 0.002)
+  World.add(mesh)
+  window.thing2 = mesh
+})
+
+
+// Floor
 
 var floorTex = new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("floor.jpg", null, function() {
   floorTex.map.wrapS = floorTex.map.wrapT = THREE.RepeatWrapping
@@ -139,16 +143,17 @@ World.start()
 
 // CSS 3D
 
-// Text 1: London
+// Text 1: Hola!
 var elem = document.createElement("h1");
-elem.textContent = "Buon giorno, Verona!";
+elem.textContent = "Hola, Barcelona!";
 elem.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
 
 var cssObj = new CSS3D.Object3D(elem);
-cssObj.position.set(1050, 20, -500);
+cssObj.position.set(1220, 225, -130);
 cssObj.scale.set(0.2, 0.2, 0.2);
 //cssObj.rotation.y = - Math.PI/2;
 cssScene.add(cssObj);
+window.txt = cssObj;
 
 // Text 2: Zurich
 var elem2 = document.createElement("h1");
@@ -161,43 +166,32 @@ cssObj2.scale.set(0.2, 0.2, 0.2);
 cssObj2.rotation.y = deg2rad(-45);
 cssScene.add(cssObj2);
 
-// Text 3: Present
-var elem3 = document.createElement("h1");
-elem3.textContent = "And I'd like to present to you...";
-elem3.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-
-var cssObj3 = new CSS3D.Object3D(elem2);
-cssObj3.position.set(0, 50, 400)
-cssObj3.scale.set(0.2, 0.2, 0.2);
-cssScene.add(cssObj2);
-
 for(var i=0; i<Slides.length;i++) cssScene.add(Slides[i].mesh);
-
 // Animation
 
 var cameraPoints = [
 {position: {x:    0, y:    0, z:  100}, rotation: {x: 0, y:   0, z: 0}},
-{position: {x: 1000, y:   25, z: -400}, rotation: {x: 0, y:   0, z: 0}},
-{position: {x: -700, y:   25, z: -200}, rotation: {x: 0, y: -45, z: 0}},
-{position: {x:    0, y:   50, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x:    0, y:  200, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 1200, y:  250, z:    0}, rotation: {x: 0, y:  20, z: 0}},
+{position: {x: -700, y:   25, z: -200}, rotation: {x: 0, y: -45, z: 0}},
 {position: {x: -800, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: -400, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x:    0, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x:    0, y: -400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x:    0, y: -800, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x:  400, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x:  800, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 1200, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 1600, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 1600, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 2000, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
+{position: {x: 2400, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},/**/
 {position: {x: 2000, y:    0, z:    0}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  400, z:    0}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  800, z:    0}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  800, z:  200}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  400, z:  200}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:    0, z: -200}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:    0, z: -400}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:    0, z: -600}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  200, z: -600}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  400, z: -600}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  600, z: -600}, rotation: {x: 0, y:  90, z: 0}},
@@ -214,6 +208,8 @@ var cameraPoints = [
 {position: {x: 2000, y: 1000, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 ], currentPoint = 0;
 
+camera.rotation.order = 'YXZ';
+
 // Input
 
 if(window.location.hash.length > 0) {
@@ -222,6 +218,7 @@ if(window.location.hash.length > 0) {
 }
 
 window.addEventListener('keyup', function(e) {
+  Prism.highlightAll();
   if(e.keyCode == 39 || e.keyCode == 32) {
     currentPoint++;
     if(!cameraPoints[currentPoint]) return;
@@ -278,7 +275,7 @@ var magicObjects  = [],
     magicMaterial = new THREE.MeshPhongMaterial({
       map: THREE.ImageUtils.loadTexture('img/jsconf-uy.jpg')
     }),
-    selectedObject = null;
+    selectedObject = null
 
 Leap.loop({enableGestures: true}, function(frame) {
   if(!frame.valid) return;

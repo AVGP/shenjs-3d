@@ -5,8 +5,8 @@ var slides = [];
 // Slide 1
 var slide = document.createElement("div");
 slide.className="slide title";
-slide.innerHTML = "<h1>Taking the web to the next dimension</h1> \
-<h2>Using WebGL and WebVR</h2>";
+slide.innerHTML = "<h1>The third dimension of the web</h1> \
+<h2>WebGL and WebVR</h2>";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(0, 200, 400)
@@ -41,9 +41,11 @@ slides.push(slide);
 // Slide 4
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Sharing information</h1>\
+slide.innerHTML = "<h1>Sharing stories</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-  <img height=\"280\" src=\"https://lh6.googleusercontent.com/AMTm57sD-fWQkcwb4sJ8jrHPD1A72uhMMH8zEIpNgYrcds_T3qa5RmqOfE9UkZLMqHcpy4EUtPXugQAAmBQLn2i9JC3zNS1PLB1fHTPDd7hR8NaRRUVVDrU0CMtmbksoTNo3BEHjtg\"> \
+  <img height=\"200\" src=\"https://lh6.googleusercontent.com/AMTm57sD-fWQkcwb4sJ8jrHPD1A72uhMMH8zEIpNgYrcds_T3qa5RmqOfE9UkZLMqHcpy4EUtPXugQAAmBQLn2i9JC3zNS1PLB1fHTPDd7hR8NaRRUVVDrU0CMtmbksoTNo3BEHjtg\"> \
+  <img height=\"200\" src=\"https://lh5.googleusercontent.com/yjKYpHiieLuNyp579fNnmli2wN8CKI1UzPfHT9RZJcu4VJRfudIVggxjR6lfYEmhY3nc10SkbPeuq4dqgDhdn__8sGirJ3V4Oo90jorHYsw5hBiGAqa5E40_TBFAr60Y64FV0rfYaA\"> \
+  <img height=\"200\" src=\"https://lh4.googleusercontent.com/7AVBkv8sRZmvfcFRpJPzgVEGbsl_z-8dgE4pHDOUOMNny8Rtd_GuZDzrS1k1ISyetwRRQkusV4QfGI9hlbivocSRjR69ITBq7cm3jgCICG5Dj57hZxGJpCxCItL0uaFufljIOInINQ\"> \
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -51,12 +53,38 @@ slide.mesh.position.set(0, 400, 400)
 slide.mesh.scale.set(0.2, 0.2, 0.2);
 slides.push(slide);
 
+// Slide 4.25 :-)
+slide = document.createElement("div");
+slide.className="slide";
+slide.innerHTML = "<h1>What's WebGL giving us?</h1>\
+<div style=\"position:relative; width: 100%;text-align: center\"> \
+<img src=\"img/coordinates.png\" height=\"280\">\
+</div>";
+
+slide.mesh = new CSS3D.Object3D(slide);
+slide.mesh.position.set(0, -400, 400)
+slide.mesh.scale.set(0.2, 0.2, 0.2);
+slides.push(slide);
+
+// Slide 4.75 :-)
+slide = document.createElement("div");
+slide.className="slide";
+slide.innerHTML = "<h1>What's WebGL giving us? (cont)</h1>\
+<div style=\"position:relative; width: 100%;text-align: center\"> \
+<img src=\"img/pipeline.png\" width=\"500\">\
+</div>";
+
+slide.mesh = new CSS3D.Object3D(slide);
+slide.mesh.position.set(0, -800, 400)
+slide.mesh.scale.set(0.2, 0.2, 0.2);
+slides.push(slide);
+
 // Slide 5
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Sharing impressions</h1>\
+slide.innerHTML = "<h1>Using WebGL for stories</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-<img height=\"280\" src=\"https://lh4.googleusercontent.com/xJ97ygjaOQb8FFRPlmEQHysO8fUTcVauHpD2PMv1oZy-WlvXmjgdCdSb9Q-rm49F7LClKwFZdfZPDjjxw1xAGt1prgCbKM3esHqK2AM71U3P1Ej5LXrzIrdjckKpFGcVEiJ5Ncxq8g\"> \
+  <a href=\"http://www.nytimes.com/interactive/2015/01/09/sports/the-dawn-wall-el-capitan.html\"><img height=\"280\" src=\"tdw.gif\"></a> \
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -67,9 +95,8 @@ slides.push(slide);
 // Slide 6
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Sharing moments</h1>\
-<div style=\"position:relative; width: 100%;text-align: center\"> \
-<img height=\"280\" src=\"https://lh5.googleusercontent.com/yjKYpHiieLuNyp579fNnmli2wN8CKI1UzPfHT9RZJcu4VJRfudIVggxjR6lfYEmhY3nc10SkbPeuq4dqgDhdn__8sGirJ3V4Oo90jorHYsw5hBiGAqa5E40_TBFAr60Y64FV0rfYaA\"> \
+slide.innerHTML = "<h1>Getting started</h1>\
+<pre><code class=\"language-javascript\">var ctx = document.querySelector('canvas').getContext('webgl')</code></pre>\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -80,9 +107,9 @@ slides.push(slide);
 // Slide 7
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Sharing more than just a glimpse</h1>\
+slide.innerHTML = "<h1>Wait... can we?</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-<img height=\"280\" src=\"https://lh4.googleusercontent.com/7AVBkv8sRZmvfcFRpJPzgVEGbsl_z-8dgE4pHDOUOMNny8Rtd_GuZDzrS1k1ISyetwRRQkusV4QfGI9hlbivocSRjR69ITBq7cm3jgCICG5Dj57hZxGJpCxCItL0uaFufljIOInINQ\"> \
+  <img height=\"280\" src=\"https://lh3.googleusercontent.com/4ahd4pgvgniMWc_Rlqgw5Rpe7XyGZTa8EZGu_ei6Us7rfRy-llkc2oFK_WjhTblGOs9doLaM5_V8QFjpMxMrmNZ-Sv858rWweXxLHvkGzBL9dWxxrLro9uY05mcgALRokbwEsFhHtg\">\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -93,9 +120,12 @@ slides.push(slide);
 // Slide 8
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Sharing more than what's real</h1>\
-<div style=\"position:relative; width: 100%;text-align: center\"> \
-<img height=\"280\" src=\"https://lh5.googleusercontent.com/RdqLp1DsGxAiPKM-glTJY4_TgFcgsIarMINQFXt_Mol4tAJ9o4bgcpZh1-kU-TYDQFWTdL_7uEIXLKfzniIPmF1JBHDbY9bLlQafRPFo3gLz-MTjhgkcUIcc5jgpCm9IDeEp7OW_ng\"> \
+slide.innerHTML = "<h1>Getting started, fixed</h1>\
+<pre><code class=\"language-javascript\">\
+var canvas = document.querySelector('canvas'),\n \
+    ctx   = canvas.getContext('webgl') || \n \
+            canvas.getContext('experimental-webgl') \
+</code></pre>\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -106,9 +136,18 @@ slides.push(slide);
 // Slide 9
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>On the web</h1>\
+slide.innerHTML = "<h1>WebGL is verbose</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-<img height=\"280\" src=\"https://lh6.googleusercontent.com/7oyZy5T4pVJVbsobuWSKYZtNQdPVyqGLBKu4gLzSc_x_HGmWR4YBW-RoxIXiztFUS27clJ0I7AbBBXop6Buq18tZupzFbXs9ANrKQCZm82fCsdLMPoiOUaJ347luHZ5om207veup8g\"> \
+<pre><code class=\"language-javascript\">\
+gl.viewport(0, 0, WIDTH, HEIGHT);\n\
+gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);\n\
+\n\
+gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);\n\
+gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,\n\
+  triangleVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);\n\
+setMatrixUniforms();\n\
+gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer.numItems);\n\
+</code></pre> \
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -119,22 +158,47 @@ slides.push(slide);
 // Slide 10
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>So far it was</h1>\
-<ul> \
-  <li><em>static</em></li> \
-  <li><em>two-dimensional</em></li> \
-  <li><em>making us spectators</em></li> \
-</ul>";
+slide.innerHTML = "<h1>But fear not...</h1>\
+<div style=\"position:relative; width: 100%;text-align: center\"> \
+<pre><code class=\"language-javascript\">\
+var scene    = new THREE.Scene(),\n\
+    camera   = new THREE.PerspectiveCamera(...),\n\
+    renderer = new THREE.WebGLRenderer()\n\
+\n\
+var box = new THREE.Mesh(...)\n\
+scene.add(box)\n\
+\n\
+renderer.render(scene, camera) // rinse, repeat\
+</code></pre></div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(2000, 0, 400)
 slide.mesh.scale.set(0.2, 0.2, 0.2);
 slides.push(slide);
 
-// Slide 11
+// Slide 10.5
 slide = document.createElement("div");
 slide.className="slide title";
-slide.innerHTML = "<h1 style=\"position: relative; top: 50%; margin-top: -1em\">2. Interactivity and 3D</h1>";
+slide.innerHTML = "<h1>Stop!</h1>\
+<h2>Live code time</h2>\
+<a href=\"http://avgp.github.io/h2g2three\">avgp.github.io/h2g2three</a>";
+
+slide.mesh = new CSS3D.Object3D(slide);
+slide.mesh.position.set(2400, 0, 400)
+slide.mesh.scale.set(0.2, 0.2, 0.2);
+slides.push(slide);
+
+
+// Slide 11
+slide = document.createElement("div");
+slide.className="slide";
+slide.innerHTML = "<h1>Examples for 3D on the web</h1>\
+<ul> \
+  <li><a href=\"https://www.google.ch/maps/place/Mercat+del+Born/@41.3855758,2.1846981,653m/data=!3m1!1e3!4m6!1m3!3m2!1s0x12a4a2f17b8c4573:0xc6f1f87231db47fc!2sMercat+del+Born!3m1!1s0x0000000000000000:0xc6f1f87231db47fc!6m1!1e1\">Google Maps</a></li> \
+  <li><a href=\"http://beta.archilogic.com/7yMgFh\">Apartment visualisation &amp; customisation</a></li> \
+  <li><a href=\"http://openjscad.org/\">CAD in your browser</a></li> \
+  <li><a href=\"http://media.tojicode.com/q3bsp/\">Quake 3!</a></li> \
+</ul>";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(1900, 0, 0)
@@ -144,14 +208,8 @@ slides.push(slide);
 
 // Slide 11
 slide = document.createElement("div");
-slide.className="slide";
-slide.innerHTML = "<h1>Examples for 3D on the web</h1>\
-<ul> \
-  <li><a href=\"http://www.nytimes.com/interactive/2015/01/09/sports/the-dawn-wall-el-capitan.html\">The Dawn Wall (NYT)</a></li> \
-  <li><a href=\"https://www.google.ch/maps/place/etc.venues+Bishopsgate/@51.5013045,-0.0669328,1026a,20y,335.81h,63.2t/data=!3m1!1e3!4m2!3m1!1s0x48761cb3b4cc5e63:0xb1b5d03c23441ae\">Google Maps</a></li> \
-  <li><a href=\"http://beta.archilogic.com/7yMgFh\">Apartment visualisation &amp; customisation</a></li> \
-  <li><a href=\"http://tinkercad.com\">CAD in your browser</a></li> \
-</ul>";
+slide.className="slide title";
+slide.innerHTML = "<h1 style=\"position: relative; top: 50%; margin-top: -1em\">2. Interactivity and 3D</h1>";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(1900, 400, 0)
@@ -355,7 +413,9 @@ slides.push(slide);
 slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1>WebVR</h1> \
-<iframe style=\"display:block; margin: 0 auto;\" width=\"311\" height=\"233\" src=\"https://www.youtube.com/embed/In9_I83wC-Q\" frameborder=\"0\" allowfullscreen></iframe>";
+<div style=\"position:relative; width: 100%;text-align: center\"><a href=\"http://teleports.me\">Demo time.</a>\
+<br><img src=\"img/test.gif\">\
+</div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(1900, 400, -800)
@@ -366,8 +426,16 @@ slides.push(slide);
 // Slide 26
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>WebVR beyond the demo</h1> \
-<iframe style=\"display:block; margin: 0 auto;\" width=\"311\" height=\"233\" src=\"https://www.youtube.com/embed/Wuoeb0WhTeM\" frameborder=\"0\" allowfullscreen></iframe>";
+slide.innerHTML = "<h1>This is how you get it</h1> \
+<pre><code class=\"language-javascript\">\
+var vrEffect   = new THREE.VREffect(renderer),\n\
+    vrControls = new THREE.VRControls()\n\
+\n\
+…\n\
+\n\
+vrControls.update()\n\
+vrEffect.render(scene, camera)\
+</code></pre>";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(1900, 200, -800)
@@ -375,7 +443,7 @@ slide.mesh.scale.set(0.2, 0.2, 0.2);
 slide.mesh.rotation.set(0, Math.PI / 2, 0);
 slides.push(slide);
 
-// Slide 26
+// Slide 27
 slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1 style=\"text-align: center\">But...</h1> \
@@ -388,7 +456,7 @@ slide.mesh.scale.set(0.2, 0.2, 0.2);
 slide.mesh.rotation.set(0, Math.PI / 2, 0);
 slides.push(slide);
 
-// Slide 27
+// Slide 28
 slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1 style=\"text-align: center\">Simulator sickness</h1> \
@@ -400,7 +468,7 @@ slide.mesh.scale.set(0.2, 0.2, 0.2);
 slide.mesh.rotation.set(0, Math.PI / 2, 0);
 slides.push(slide);
 
-// Slide 28
+// Slide 29
 slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1 style=\"text-align: center\">Design Guidelines</h1> \
@@ -413,7 +481,7 @@ slide.mesh.scale.set(0.2, 0.2, 0.2);
 slide.mesh.rotation.set(0, Math.PI / 2, 0);
 slides.push(slide);
 
-// Slide 29
+// Slide 30
 slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1 style=\"text-align: center\">Interfaces & Interactions</h1> \
@@ -425,7 +493,7 @@ slide.mesh.scale.set(0.2, 0.2, 0.2);
 slide.mesh.rotation.set(0, Math.PI / 2, 0);
 slides.push(slide);
 
-// Slide 30
+// Slide 31
 slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1>Wrap up</h1> \
@@ -446,9 +514,9 @@ slides.push(slide);
 // Slide 31
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Grazie!</h1> \
+slide.innerHTML = "<h1>¡Gracias!</h1> \
 <ul> \
-<li>Slides @ <a href=\"https://bit.ly/fowd-3dweb\">bit.ly/jsday15-3dweb</a></li> \
+<li>Slides @ <a href=\"https://bit.ly/mdtrnjs-3d\">bit.ly/mdtrnjs-3d</a></li> \
 <li>Twitter: <a href=\"https://twitter.com/g33konaut\">@g33konaut</a></li> \
 <li>Web: <a href=\"http://beta.archilogic.com\">archilogic.com</a></li> \
 </ul>";
