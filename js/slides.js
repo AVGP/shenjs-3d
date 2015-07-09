@@ -5,7 +5,7 @@ var slides = [];
 // Slide 1
 var slide = document.createElement("div");
 slide.className="slide title";
-slide.innerHTML = "<h1>The third dimension of the web</h1> \
+slide.innerHTML = "<h1>Diving in</h1> \
 <h2>WebGL and WebVR</h2>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -514,9 +514,9 @@ slides.push(slide);
 // Slide 31
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>¡Gracias!</h1> \
+slide.innerHTML = "<h1>谢谢</h1> \
 <ul> \
-<li>Slides @ <a href=\"https://bit.ly/mdtrnjs-3d\">bit.ly/mdtrnjs-3d</a></li> \
+<li>Slides @ <a href=\"https://bit.ly/shenjs-3d\">bit.ly/shenjs-3d</a></li> \
 <li>Twitter: <a href=\"https://twitter.com/g33konaut\">@g33konaut</a></li> \
 <li>Web: <a href=\"http://beta.archilogic.com\">archilogic.com</a></li> \
 </ul>";
