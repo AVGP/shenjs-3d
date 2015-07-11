@@ -6,7 +6,8 @@ var slides = [];
 var slide = document.createElement("div");
 slide.className="slide title";
 slide.innerHTML = "<h1>Diving in</h1> \
-<h2>WebGL and WebVR</h2>";
+<h2>WebGL and WebVR</h2>\
+<img src=\"vr.gif\" height=\"200\">";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(0, 200, 400)
@@ -41,11 +42,9 @@ slides.push(slide);
 // Slide 4
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Sharing stories</h1>\
+slide.innerHTML = "<h1>We're visual beings</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-  <img height=\"200\" src=\"https://lh6.googleusercontent.com/AMTm57sD-fWQkcwb4sJ8jrHPD1A72uhMMH8zEIpNgYrcds_T3qa5RmqOfE9UkZLMqHcpy4EUtPXugQAAmBQLn2i9JC3zNS1PLB1fHTPDd7hR8NaRRUVVDrU0CMtmbksoTNo3BEHjtg\"> \
-  <img height=\"200\" src=\"https://lh5.googleusercontent.com/yjKYpHiieLuNyp579fNnmli2wN8CKI1UzPfHT9RZJcu4VJRfudIVggxjR6lfYEmhY3nc10SkbPeuq4dqgDhdn__8sGirJ3V4Oo90jorHYsw5hBiGAqa5E40_TBFAr60Y64FV0rfYaA\"> \
-  <img height=\"200\" src=\"https://lh4.googleusercontent.com/7AVBkv8sRZmvfcFRpJPzgVEGbsl_z-8dgE4pHDOUOMNny8Rtd_GuZDzrS1k1ISyetwRRQkusV4QfGI9hlbivocSRjR69ITBq7cm3jgCICG5Dj57hZxGJpCxCItL0uaFufljIOInINQ\"> \
+  <img src=\"img/visual-bandwidth.png\" height=\"280\">\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -56,9 +55,9 @@ slides.push(slide);
 // Slide 4.25 :-)
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>What's WebGL giving us?</h1>\
+slide.innerHTML = "<h1>The Screen is flat?</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-<img src=\"img/coordinates.png\" height=\"280\">\
+<img src=\"img/2dcoord.jpg\" height=\"280\">\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -69,9 +68,9 @@ slides.push(slide);
 // Slide 4.75 :-)
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>What's WebGL giving us? (cont)</h1>\
+slide.innerHTML = "<h1>The screen is NOT flat!</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-<img src=\"img/pipeline.png\" width=\"500\">\
+<img src=\"img/coordinates.png\" width=\"280\">\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -82,9 +81,9 @@ slides.push(slide);
 // Slide 5
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>Using WebGL for stories</h1>\
+slide.innerHTML = "<h1>So what's WebGL about?</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-  <a href=\"http://www.nytimes.com/interactive/2015/01/09/sports/the-dawn-wall-el-capitan.html\"><img height=\"280\" src=\"tdw.gif\"></a> \
+<img src=\"img/pipeline.png\" height=\"200\">\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -109,7 +108,7 @@ slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1>Wait... can we?</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
-  <img height=\"280\" src=\"https://lh3.googleusercontent.com/4ahd4pgvgniMWc_Rlqgw5Rpe7XyGZTa8EZGu_ei6Us7rfRy-llkc2oFK_WjhTblGOs9doLaM5_V8QFjpMxMrmNZ-Sv858rWweXxLHvkGzBL9dWxxrLro9uY05mcgALRokbwEsFhHtg\">\
+  <img height=\"280\" src=\"img/webgl-compat.png\">\
 </div>";
 
 slide.mesh = new CSS3D.Object3D(slide);
@@ -136,7 +135,7 @@ slides.push(slide);
 // Slide 9
 slide = document.createElement("div");
 slide.className="slide";
-slide.innerHTML = "<h1>WebGL is verbose</h1>\
+slide.innerHTML = "<h1>WebGL is too much!</h1>\
 <div style=\"position:relative; width: 100%;text-align: center\"> \
 <pre><code class=\"language-javascript\">\
 gl.viewport(0, 0, WIDTH, HEIGHT);\n\
@@ -179,9 +178,10 @@ slides.push(slide);
 // Slide 10.5
 slide = document.createElement("div");
 slide.className="slide title";
-slide.innerHTML = "<h1>Stop!</h1>\
+slide.innerHTML = "<h1 style=\"color: red; font-size:3em;\">停止!</h1>\
 <h2>Live code time</h2>\
-<a href=\"http://avgp.github.io/h2g2three\">avgp.github.io/h2g2three</a>";
+<div><a href=\"http://avgp.github.io/h2g2three\">avgp.github.io/h2g2three</a></div>\
+<img src=\"img/hammertime.gif\">";
 
 slide.mesh = new CSS3D.Object3D(slide);
 slide.mesh.position.set(2400, 0, 400)

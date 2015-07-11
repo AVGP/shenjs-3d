@@ -182,7 +182,7 @@ var cameraPoints = [
 {position: {x: 1600, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 1600, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 2000, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
-{position: {x: 2400, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},/**/
+{position: {x: 2400, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},/*
 {position: {x: 2000, y:    0, z:    0}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  400, z:    0}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  800, z:  200}, rotation: {x: 0, y:  90, z: 0}},
@@ -200,7 +200,7 @@ var cameraPoints = [
 {position: {x: 2000, y:    0, z: -800}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:    0, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  200, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  400, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  400, z: -1000}, rotation: {x: 0, y:  90, z: 0}},*/
 {position: {x: 2000, y:  800, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y: 1000, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 ], currentPoint = 0;
