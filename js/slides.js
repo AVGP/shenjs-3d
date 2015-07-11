@@ -516,7 +516,7 @@ slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1>谢谢</h1> \
 <ul> \
-<li>Slides @ <a href=\"https://bit.ly/shenjs-3d\">bit.ly/shenjs-3d</a></li> \
+<li>Slides @ <a href=\"http://avgp.github.io/shenjs-3d\">avgp.github.io/shenjs-3d</a></li> \
 <li>Twitter: <a href=\"https://twitter.com/g33konaut\">@g33konaut</a></li> \
 <li>Web: <a href=\"http://beta.archilogic.com\">archilogic.com</a></li> \
 </ul>";
