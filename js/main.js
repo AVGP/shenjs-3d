@@ -194,9 +194,9 @@ var cameraPoints = [
 {position: {x: 2000, y:  600, z: -600}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  800, z: -600}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  800, z: -800}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  600, z: -800}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  600, z: -800}, rotation: {x: 0, y:  90, z: 0}},*/
 {position: {x: 2000, y:  400, z: -800}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  200, z: -800}, rotation: {x: 0, y:  90, z: 0}},
+{position: {x: 2000, y:  200, z: -800}, rotation: {x: 0, y:  90, z: 0}},/*
 {position: {x: 2000, y:    0, z: -800}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:    0, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  200, z: -1000}, rotation: {x: 0, y:  90, z: 0}},

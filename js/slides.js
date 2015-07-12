@@ -413,7 +413,7 @@ slides.push(slide);
 slide = document.createElement("div");
 slide.className="slide";
 slide.innerHTML = "<h1>WebVR</h1> \
-<div style=\"position:relative; width: 100%;text-align: center\"><a href=\"http://teleports.me\">Demo time.</a>\
+<div style=\"position:relative; width: 100%;text-align: center\"><a href=\"http://teleports.me\">teleports.me</a>\
 <br><img src=\"img/test.gif\">\
 </div>";
 
