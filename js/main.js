@@ -93,6 +93,11 @@ loader.load('window-of-the-world/wotw.obj', 'window-of-the-world/wotw.mtl', func
   window.thing = mesh
 })
 
+var lightA = new THREE.PointLight(0xffffff)
+lightA.position.set(600, -10, -500)
+World.add(lightA)
+
+
 // Merchants tower (WTC)
 
 loader.load('wtc/Shenzhen_World_Trade_Centre.obj', 'wtc/Shenzhen_World_Trade_Centre.mtl', function(mesh) {
@@ -107,6 +112,10 @@ loader.load('wtc/Shenzhen_World_Trade_Centre.obj', 'wtc/Shenzhen_World_Trade_Cen
   World.add(mesh)
   window.thing2 = mesh
 })
+
+var light = new THREE.PointLight(0xffffff)
+light.position.set(1000, -100, 0)
+World.add(light)
 
 // Floor
 
@@ -167,7 +176,6 @@ for(var i=0; i<Slides.length;i++) cssScene.add(Slides[i].mesh);
 // Animation
 
 var cameraPoints = [
-{position: {x:    0, y:    0, z:  100}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x:    0, y:  200, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 1200, y:  250, z:    0}, rotation: {x: 0, y:  20, z: 0}},
 {position: {x: -700, y:   25, z: -200}, rotation: {x: 0, y: -45, z: 0}},
@@ -182,25 +190,9 @@ var cameraPoints = [
 {position: {x: 1600, y:  400, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 1600, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 2000, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
-{position: {x: 2400, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},/*
-{position: {x: 2000, y:    0, z:    0}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  400, z:    0}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  800, z:  200}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  400, z:  200}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:    0, z: -200}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:    0, z: -400}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  200, z: -600}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  400, z: -600}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  600, z: -600}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  800, z: -600}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  800, z: -800}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  600, z: -800}, rotation: {x: 0, y:  90, z: 0}},*/
+{position: {x: 2400, y:    0, z:  500}, rotation: {x: 0, y:   0, z: 0}},
 {position: {x: 2000, y:  400, z: -800}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  200, z: -800}, rotation: {x: 0, y:  90, z: 0}},/*
-{position: {x: 2000, y:    0, z: -800}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:    0, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  200, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
-{position: {x: 2000, y:  400, z: -1000}, rotation: {x: 0, y:  90, z: 0}},*/
+{position: {x: 2000, y:  200, z: -800}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y:  800, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 {position: {x: 2000, y: 1000, z: -1000}, rotation: {x: 0, y:  90, z: 0}},
 ], currentPoint = 0;
